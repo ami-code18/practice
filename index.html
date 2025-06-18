@@ -9,69 +9,26 @@
 
 <body>
 
-    <h1 id="question">問題</h1>
-    <h1 id="answer">答え</h1>
+    <h1>温度の問題</h1>
+    <button id="btn1">すべて</button>
+    <button id="btn2">スチーム系</button>
+    <button id="btn3">デニッシュ</button>
+    <button id="btn4">菓子</button>
+    <button id="btn5">調理</button>
 
 
     <script>
-        const quiz = [
-            {
-                question: '華氏温度は？',
-                answer: '200/5 180/3'
-            },
-            {
-                question: 'とろふわチーズは？',
-                answer: '160/0 200/3 15分'
-            },
-            {
-                question: 'りんごパイ、ブリュレパイ、焼きサンドは？',
-                answer: '200/5 180/3 10分'
-            },
-            {
-                question: 'メロンパンは？',
-                answer: '180/3 180/3 10分'
-            },
-            {
-                question: 'ロイヤルホワイトは？',
-                answer: '180/4 220/5 23分'
-            },
-            {
-                question: '塩パンは？',
-                answer: '220/3 210/5 12分 少なめ'
-            }
-        ];
-
-        let currentIndex = 0;
-        const questionEl = document.getElementById('question');
-        const answerEl = document.getElementById('answer');
-
-        function showQuiz(index) {
-            if (index >= quiz.length) {
-                currentIndex = 0;
-                showQuiz(currentIndex);
-                return;
-            }
-
-            const q = quiz[index];
-            questionEl.textContent = q.question;
-            answerEl.textContent = '';
-
-            //３秒後に答えを表示
-            setTimeout(() => {
-                answerEl.textContent = q.answer;
-            }, 3000);
-
-            setTimeout(() => {
-                currentIndex++;
-                showQuiz(currentIndex);
-            }, 5000);
+        document.getElementById('btn1').onclick = () => {
+            window.location = 'all.html';
         }
 
-        showQuiz(currentIndex);
+        document.getElementById('btn2').onclick = () => {
+            window.location = 'steam.html';
+        }
 
-
-
-
+        document.getElementById('btn3').onclick = () => {
+            window.location = 'danish.html';
+        }
     </script>
 </body>
 
