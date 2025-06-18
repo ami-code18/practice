@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="question">問題</h1>
+    <h1 id="answer">答え</h1>
+
+    <script>
+
+        const quiz = [
+            {
+                question: '焼きサンド',
+                answer: '200/5 180/3 10分'
+            },
+            {
+                question: 'ケチャマヨ',
+                answer: '200/5 180/3 12分'
+            },
+            {
+                question: 'あらびきポークフランク',
+                answer: '200/5 180/3 12分より長い'
+            },
+            {
+                question: 'とろふわチーズ',
+                answer: '160/0 200/3 15分 少なめ'
+            },
+            {
+                question: '明太フィセル',
+                answer: '200/5 180/3 4分'
+            },
+            {
+                question: 'クロックマダム',
+                answer: '200/5 180/3 '
+            },
+            {
+                question: 'ハムチーズクロックムッシュ',
+                answer: '200/5 180/3 '
+            },
+
+        ];
+
+        let currentIndex = 0;
+        const questionEl = document.getElementById('question');
+        const answerEl = document.getElementById('answer');
+
+        function showQuiz(index) {
+
+            if(index >= quiz.length){
+                currentIndex =0;
+                showQuiz(currentIndex);
+                return;
+            }
+
+            const q = quiz[index];
+            questionEl.textContent = q.question;
+            answerEl.textContent = '';
+
+            setTimeout(() => {
+                answerEl.textContent=q.answer;
+            },3000);
+
+            setTimeout(()=>{
+                currentIndex++;
+                showQuiz(currentIndex);
+            },7000);
+        }
+
+        showQuiz(currentIndex);
+
+    </script>
+</body>
+
+</html>
