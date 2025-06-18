@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="question">問題</h1>
+    <h1 id="answer">答え</h1>
+
+
+    <script>
+        const quiz = [
+            {
+                question: '華氏温度は？',
+                answer: '200/5 180/3'
+            },
+            {
+                question: 'とろふわチーズは？',
+                answer: '160/0 200/3 15分'
+            },
+            {
+                question: 'りんごパイ、ブリュレパイ、焼きサンドは？',
+                answer: '200/5 180/3 10分'
+            },
+            {
+                question: 'メロンパンは？',
+                answer: '180/3 180/3 10分'
+            },
+            {
+                question: 'ロイヤルホワイトは？',
+                answer: '180/4 220/5 23分'
+            },
+            {
+                question: '塩パンは？',
+                answer: '220/3 210/5 12分 少なめ'
+            }
+        ];
+
+        let currentIndex = 0;
+        const questionEl = document.getElementById('question');
+        const answerEl = document.getElementById('answer');
+
+        function showQuiz(index) {
+            if (index >= quiz.length) {
+                currentIndex = 0;
+                showQuiz(currentIndex);
+                return;
+            }
+
+            const q = quiz[index];
+            questionEl.textContent = q.question;
+            answerEl.textContent = '';
+
+            //３秒後に答えを表示
+            setTimeout(() => {
+                answerEl.textContent = q.answer;
+            }, 3000);
+
+            setTimeout(() => {
+                currentIndex++;
+                showQuiz(currentIndex);
+            }, 5000);
+        }
+
+        showQuiz(currentIndex);
+
+
+
+
+    </script>
+</body>
+
+</html>
